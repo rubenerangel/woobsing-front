@@ -1,0 +1,121 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center">Registro de Usuarios</h1>
+
+    </div>
+    <div class="col-6 mx-auto">
+      <div class="card p-2">
+        <form>
+          <div class="form-group row mb-1">
+            <label for="" class="col-3 px-1 text-right col-form-label">Nombre</label>
+            <div class="col-6">
+              <input 
+                type="text" 
+                [(ngModel)] = "name"
+                name="name"
+                placeholder="Añade tu nombre"
+                required
+                
+                minlength="3"
+                class="form-control form-control-sm" 
+              >
+              
+            </div>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="" class="col-3 px-1 text-right col-form-label">Apellido</label>
+            <div class="col-6">
+              <input 
+                type="text" 
+                [(ngModel)] = "last_name"
+                name="lastName"
+                placeholder="Añade tu apellido"
+                required
+                class="form-control form-control-sm " 
+              >
+            </div>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="" class="col-3 px-1 text-right col-form-label">Teléfono</label>
+            <div class="col-6">
+              <input 
+                type="text" 
+                [(ngModel)]="phone"
+                name="phone"
+                required
+                placeholder="Añade tu teléfono"
+                class="form-control form-control-sm " 
+              >
+            </div>
+          </div>
+
+          <div class="form-group row mb-1">
+            <label for="" class="col-3 px-1 text-right col-form-label">E-mail</label>
+            <div class="col-6">
+              <input 
+                type="text" 
+                [(ngModel)]="email"
+                name="email"
+                required
+                placeholder="Añade tu e-mail"
+                class="form-control form-control-sm" 
+              >
+            </div>
+          </div>
+
+          <div class="form-group row mb-1">
+            <label for="" class="col-3 px-1 text-right col-form-label">Dirección</label>
+            <div class="col-6">
+              <input 
+                type="text" 
+                [(ngModel)]="address"
+                name="address"
+                required
+                placeholder="Añade tu dirección"
+                class="form-control form-control-sm" 
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <button type="submit" (click)="register()" class="btn btn-sm btn-secondary">Register</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div> <!--/.row-->
+
+  <div class="row mt-4"> 
+    <div class="col-10 mx-auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Teléfono</th>
+            <th>E-mail</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let usuario of usuarios">
+            <td>{{ usuario.name }}</td>
+            <td>{{ usuario.last_name }}</td>
+            <td>{{ usuario.phone }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>{{ usuario.address }}</td>
+            <td>
+              <a href="#" class="btn btn-sm btn-warning" >Editar</a> &nbsp;
+              <a href="#" class="btn btn-sm btn-danger" (click)="delete(usuario.id)">Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
